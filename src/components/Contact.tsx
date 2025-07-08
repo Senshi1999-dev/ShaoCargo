@@ -37,28 +37,18 @@ const Contact = () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email.trim())) throw new Error('Пожалуйста, введите корректный email');
 
-      // Web3Forms отправка
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "9b98ba42-9f4a-4a56-ae97-ee2aec78a3f4", // <--- Вставь свой ключ сюда
-          name: name.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          comment: message.trim(),
-          from_name: "Shao Cargo",
-          subject: "Новая заявка с сайта"
-        })
+      // Отправка на сервер
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message })
       });
 
-      if (response.ok) {
-        setShowSuccess(true);
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        setTimeout(() => setShowSuccess(false), 5000);
-      } else {
-        throw new Error("Ошибка при отправке формы. Попробуйте позже.");
-      }
+      if (!response.ok) throw new Error('Ошибка при отправке формы. Попробуйте позже.');
+
+      setShowSuccess(true);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setShowSuccess(false), 5000);
     } catch (err: any) {
       setErrorMessage(err.message || 'Произошла ошибка. Попробуйте позже.');
       setShowError(true);
@@ -72,16 +62,14 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" data-aos="fade-up">
-            Свяжитесь с нами
-          </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Свяжитесь с нами</h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Готовы помочь с вашими логистическими задачами
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div data-aos="fade-right" data-aos-duration="800">
+          <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -96,7 +84,6 @@ const Contact = () => {
                     placeholder="Ваше имя"
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
                   <input
@@ -168,8 +155,7 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Контактная информация — без изменений */}
-          <div data-aos="fade-left" data-aos-duration="800">
+          <div>
             <div className="bg-gray-50 rounded-lg p-8 h-full">
               <h3 className="text-2xl font-bold text-gray-900 mb-8">Контактная информация</h3>
               <div className="space-y-6">
@@ -200,8 +186,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Адрес</h4>
                     <p className="text-gray-700">
-                      г. Москва, ул. Логистическая, 15
-                      <br />
+                      г. Москва, ул. Логистическая, 15<br />
                       БЦ "Карго Плаза", офис 301
                     </p>
                   </div>
