@@ -2,24 +2,28 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== 'POST') return res.status(405).json({ message: 'Method Not Allowed' });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method Not Allowed' });
+  }
 
   const { name, email, phone, message } = req.body;
 
   try {
+    console.log("📨 Получена форма:", { name, email, phone, message });
+
     const transporter = nodemailer.createTransport({
-      host: "smtp.mail.ru", // или smtp.yandex.ru, smtp.gmail.com
+      host: "smtp.mail.ru",
       port: 465,
       secure: true,
       auth: {
         user: "aslan.mislishaev@mail.ru",
-        pass: "hLslUPgYFqM8CTfuioIt" // Никому не показывай!
+        pass: "ТВОЙ_ПАРОЛЬ_ДЛЯ_ПРИЛОЖЕНИЙ" // Не твой основной пароль!
       }
     });
 
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: '"Shao Cargo" <aslan.mislishaev@mail.ru>',
-      to: "aslan.mislishaev@mail.ru,shaocargo@inbox.ru",
+      to: "aslan.mislishaev@mail.ru, shaocargo@inbox.ru",
       subject: "Новая заявка с сайта",
       html: `
         <h2>Новая заявка с сайта Shao Cargo</h2>
@@ -30,9 +34,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `
     });
 
+    console.log("✅ Письмо отправлено:", info.messageId);
     res.status(200).json({ success: true });
-  } catch (err) {
-    console.error(err);
+  } catch (err: any) {
+    console.error("❌ Ошибка при отправке письма:", err.message || err);
     res.status(500).json({ success: false, error: 'Ошибка отправки письма' });
   }
 }
