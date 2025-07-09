@@ -16,7 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       port: 465,
       secure: true,
       auth: {
-        user: "shaocargo@yandex.ru",
+        user: "shaocargo",
         pass: "azsicwaadlixbhft" // Не твой основной пароль!
       }
     });
