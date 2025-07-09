@@ -21,7 +21,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 text-center text-white relative z-10">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6" data-aos="fade-up">
-          Надежные грузоперевозки
+          Надежные грузоперевозка
           <span className="block text-yellow-500 mt-2">по всему миру</span>
         </h1>
         
