@@ -30,18 +30,24 @@ const Contact = () => {
     try {
       const { name, email, phone, message } = formData;
 
-      // Валидация
       if (!name.trim()) throw new Error('Пожалуйста, введите ваше имя');
       if (!email.trim()) throw new Error('Пожалуйста, введите email');
       if (!message.trim()) throw new Error('Пожалуйста, введите сообщение');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email.trim())) throw new Error('Пожалуйста, введите корректный email');
 
-      // Отправка на сервер
-      const response = await fetch('/api/send', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, message })
+        body: JSON.stringify({
+          access_key: 'c4b87761-d960-403f-87dc-52078eb7de2b',
+          name,
+          email,
+          phone,
+          message,
+          from_name: 'ShaoCargo',
+          subject: 'Новая заявка с сайта ShaoCargo'
+        })
       });
 
       if (!response.ok) throw new Error('Ошибка при отправке формы. Попробуйте позже.');
