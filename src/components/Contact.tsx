@@ -40,7 +40,7 @@ const Contact = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: 'c4b87761-d960-403f-87dc-52078eb7de2b',
+          access_key: import.meta.env.VITE_WEB3FORM_ACCESS_KEY,
           name,
           email,
           phone,
