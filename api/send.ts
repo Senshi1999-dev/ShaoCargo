@@ -16,13 +16,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       port: 465,
       secure: true,
       auth: {
-        user: "shaocargo",
+        user: "shaocargo@yandex.ru",
         pass: "azsicwaadlixbhft" // Не твой основной пароль!
       }
     });
 
     const info = await transporter.sendMail({
-      from: '"Shao Cargo" <aslan.mislishaev@mail.ru>',
+      from: '"Shao Cargo" <shaocargo@yandex.ru>',
       to: "shaocargo@yandex.ru",
       subject: "Новая заявка с сайта",
       html: `
