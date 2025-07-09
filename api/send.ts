@@ -38,6 +38,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.status(200).json({ success: true });
   } catch (err: any) {
     console.error("❌ Ошибка при отправке письма:", err.message || err);
-    res.status(500).json({ success: false, error: 'Ошибка отправки письма' });
+    res.status(500).json({ success: false, error: err.message || 'Ошибка отправки письма';
   }
 }
