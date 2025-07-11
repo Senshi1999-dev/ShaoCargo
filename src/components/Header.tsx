@@ -29,16 +29,36 @@ const Header = () => {
     >
       <div className="w-full px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Логотип */}
-          <div className="flex items-center">
+          {/* Лого и навигация (в одной строке на десктопе) */}
+          <div className="flex items-center gap-10">
+            {/* Логотип */}
             <img
               src="/logo.png"
               alt="Shao Cargo"
               className="h-16 w-auto sm:h-20 md:h-24"
             />
+
+            {/* Навигация (только десктоп) */}
+            <ul className="hidden md:flex gap-8 text-2xl font-bold text-white">
+              {[
+                { name: 'Главная', id: 'hero' },
+                { name: 'О нас', id: 'about' },
+                { name: 'Услуги', id: 'services' },
+                { name: 'Контакты', id: 'contact' },
+              ].map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-white hover:text-yellow-500 transition-all duration-300"
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Кнопка бургер-меню (только для мобилки) */}
+          {/* Кнопка бургер-меню (только мобилка) */}
           <button
             className="md:hidden text-white hover:text-yellow-500 transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -46,25 +66,6 @@ const Header = () => {
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-
-          {/* Меню (только для desktop) */}
-          <ul className="hidden md:flex gap-6 text-2xl font-bold text-white ml-10">
-            {[
-              { name: 'Главная', id: 'hero' },
-              { name: 'О нас', id: 'about' },
-              { name: 'Услуги', id: 'services' },
-              { name: 'Контакты', id: 'contact' },
-            ].map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-white hover:text-yellow-500 transition-all duration-300 font-medium"
-                >
-                  {item.name}
-                </button>
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Мобильное меню */}
