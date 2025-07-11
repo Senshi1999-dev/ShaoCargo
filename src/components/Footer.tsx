@@ -1,5 +1,5 @@
 import React from 'react';
-import { Truck, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import {Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,11 +9,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <Truck className="h-8 w-8 text-yellow-500" />
+              <img src="/logo.png" alt="Shao Cargo" className="h-10 w-auto" />
               <span className="text-xl font-bold">Shao Cargo</span>
             </div>
             <p className="text-gray-400 mb-4 leading-relaxed">
-              Надежный партнер в сфере логистики с 15-летним опытом. Доставляем грузы по всему миру.
+              Надежный партнер в сфере логистики. Доставляем грузы по всему миру.
             </p>
             <div className="flex items-center gap-2 text-gray-400">
               <Clock size={16} />
@@ -39,9 +39,9 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">О компании</a></li>
               <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Услуги</a></li>
-              <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Цены</a></li>
+    
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Контакты</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Отследить груз</a></li>
+              
             </ul>
           </div>
 
@@ -52,15 +52,15 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-red-600 mt-0.5" />
                 <div>
-                  <p className="text-gray-400">+7 (495) 123-45-67</p>
-                  <p className="text-gray-400">+7 (800) 555-01-23</p>
+                  <p className="text-gray-400">+7 (962) 022-60-95</p>
+                  
                 </div>
               </div>
               
               <div className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-red-600 mt-0.5" />
                 <div>
-                  <p className="text-gray-400">info@shaocargo.ru</p>
+                  <p className="text-gray-400">shaocargo@yandex.com</p>
                 </div>
               </div>
               
@@ -77,14 +77,14 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2024 Shao Cargo. Все права защищены.
+              © 2025 Shao Cargo. Все права защищены.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Политика конфиденциальности
+                
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Условия использования
+                
               </a>
             </div>
           </div>

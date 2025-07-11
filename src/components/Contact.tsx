@@ -33,6 +33,7 @@ const Contact = () => {
       if (!name.trim()) throw new Error('Пожалуйста, введите ваше имя');
       if (!email.trim()) throw new Error('Пожалуйста, введите email');
       if (!message.trim()) throw new Error('Пожалуйста, введите сообщение');
+      if (!phone.trim()) throw new Error('Пожалуйста, введите номер телефона');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email.trim())) throw new Error('Пожалуйста, введите корректный email');
 
@@ -105,7 +106,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Телефон (WhatsApp)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Телефон (WhatsApp)*</label>
                 <InputMask
                   mask="+7 (999) 999-99-99"
                   maskChar="_"
@@ -137,7 +138,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300"
-                  placeholder="Расскажите о ваших потребностях в логистике..."
+                  placeholder="Укажите вид груза, его вес, откуда и куда доставить.&#10;Это поможет нам сразу приступить к работе :)"
                 />
               </div>
 
@@ -171,8 +172,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Телефон</h4>
-                    <p className="text-gray-700">+7 (495) 123-45-67</p>
-                    <p className="text-gray-700">+7 (800) 555-01-23</p>
+                    <p className="text-gray-700">+7 (962) 022-60-95</p>
+                    
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -181,8 +182,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <p className="text-gray-700">info@shaocargo.ru</p>
-                    <p className="text-gray-700">sales@shaocargo.ru</p>
+                    <p className="text-gray-700">shaocargo@yandex.com</p>
+        
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
