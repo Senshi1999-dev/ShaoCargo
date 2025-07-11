@@ -32,19 +32,13 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
           <button
             onClick={scrollToContact}
-            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 shadow-lg"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg animate-heartbeat"
           >
             Получить расчет
-            <ArrowRight size={20} />
+            
           </button>
           
-          <a
-            href="tel:+74951234567"
-            className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-          >
-            <Phone size={20} />
-            +7 (495) 123-45-67
-          </a>
+          
         </div>
       </div>
     </section>
