@@ -28,18 +28,27 @@ const Header = () => {
       }`}
     >
       <div className="w-full px-6 py-4">
-        <nav className="flex items-center space-x-10">
-          {/* Логотип без надписи */}
+        <div className="flex items-center justify-between">
+          {/* Логотип */}
           <div className="flex items-center">
             <img
               src="/logo.png"
               alt="Shao Cargo"
-              className="h-20 w-auto sm:h-24 md:h-24"
+              className="h-16 w-auto sm:h-20 md:h-24"
             />
           </div>
 
-          {/* Меню (десктоп) */}
-          <ul className="flex gap-6 text-2xl font-bold text-white">
+          {/* Кнопка бургер-меню (только для мобилки) */}
+          <button
+            className="md:hidden text-white hover:text-yellow-500 transition-colors duration-300"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+          {/* Меню (только для desktop) */}
+          <ul className="hidden md:flex gap-6 text-2xl font-bold text-white ml-10">
             {[
               { name: 'Главная', id: 'hero' },
               { name: 'О нас', id: 'about' },
@@ -56,18 +65,9 @@ const Header = () => {
               </li>
             ))}
           </ul>
+        </div>
 
-          {/* Кнопка мобильного меню */}
-          <button
-            className="md:hidden text-white hover:text-yellow-500 transition-colors duration-300 ml-auto"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
-
-        {/* Меню (мобильная версия) */}
+        {/* Мобильное меню */}
         <div
           className={`md:hidden transition-all duration-300 overflow-hidden ${
             isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
