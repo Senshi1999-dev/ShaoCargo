@@ -28,6 +28,8 @@ const Header = () => {
       }`}
     >
       <div className="w-full px-6 py-4">
+        {/* Tagline (only visible on mobile) */}
+        <div className="text-center text-white text-sm sm:text-base mb-2 md:hidden">Fast Global Shipping</div>
         <div className="flex items-center justify-between">
           {/* Лого и навигация (в одной строке на десктопе) */}
           <div className="flex items-center gap-10">
