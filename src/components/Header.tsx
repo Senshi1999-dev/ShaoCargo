@@ -28,11 +28,9 @@ const Header = () => {
       }`}
     >
       <div className="w-full px-6 py-4">
-        {/* Tagline (only visible on mobile) */}
-        <div className="text-center text-white text-sm sm:text-base mb-2 md:hidden">Fast Global Shipping</div>
         <div className="flex items-center justify-between">
-          {/* Лого и навигация (в одной строке на десктопе) */}
-          <div className="flex items-center gap-10">
+          {/* Лого и название (вместе) */}
+          <div className="flex items-center gap-4">
             {/* Логотип */}
             <img
               src="/logo.png"
@@ -40,25 +38,30 @@ const Header = () => {
               className="h-16 w-auto sm:h-20 md:h-24"
             />
 
-            {/* Навигация (только десктоп) */}
-            <ul className="hidden md:flex gap-8 text-2xl font-bold text-white">
-              {[
-                { name: 'Главная', id: 'hero' },
-                { name: 'О нас', id: 'about' },
-                { name: 'Услуги', id: 'services' },
-                { name: 'Контакты', id: 'contact' },
-              ].map((item) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-white hover:text-yellow-500 transition-all duration-300"
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            {/* Название компании (только на мобилке) */}
+            <span className="block text-white text-base font-medium md:hidden leading-tight mt-1">
+              Логистическая<br />компания ShaoCargo
+            </span>
           </div>
+
+          {/* Навигация (только десктоп) */}
+          <ul className="hidden md:flex gap-8 text-2xl font-bold text-white ml-auto">
+            {[
+              { name: 'Главная', id: 'hero' },
+              { name: 'О нас', id: 'about' },
+              { name: 'Услуги', id: 'services' },
+              { name: 'Контакты', id: 'contact' },
+            ].map((item) => (
+              <li key={item.id}>
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-white hover:text-yellow-500 transition-all duration-300"
+                >
+                  {item.name}
+                </button>
+              </li>
+            ))}
+          </ul>
 
           {/* Кнопка бургер-меню (только мобилка) */}
           <button
