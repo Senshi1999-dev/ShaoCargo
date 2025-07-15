@@ -29,8 +29,8 @@ const Header = () => {
     >
       <div className="w-full px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Лого и название (вместе) */}
-          <div className="flex items-center gap-4">
+          {/* Левый блок: Логотип + навигация */}
+          <div className="flex items-center gap-10">
             {/* Логотип */}
             <img
               src="/logo.png"
@@ -38,32 +38,32 @@ const Header = () => {
               className="h-16 w-auto sm:h-20 md:h-24"
             />
 
-            {/* Название компании (только на мобилке) */}
+            {/* Название компании (мобилка) */}
             <span className="block text-white text-base font-medium md:hidden leading-tight mt-1">
               Логистическая<br />компания ShaoCargo
             </span>
+
+            {/* Навигация (десктоп) */}
+            <ul className="hidden md:flex gap-8 text-2xl font-bold text-white">
+              {[
+                { name: 'Главная', id: 'hero' },
+                { name: 'О нас', id: 'about' },
+                { name: 'Услуги', id: 'services' },
+                { name: 'Контакты', id: 'contact' },
+              ].map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-white hover:text-yellow-500 transition-all duration-300"
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Навигация (только десктоп) */}
-          <ul className="hidden md:flex gap-8 text-2xl font-bold text-white ml-auto">
-            {[
-              { name: 'Главная', id: 'hero' },
-              { name: 'О нас', id: 'about' },
-              { name: 'Услуги', id: 'services' },
-              { name: 'Контакты', id: 'contact' },
-            ].map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-white hover:text-yellow-500 transition-all duration-300"
-                >
-                  {item.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-
-          {/* Кнопка бургер-меню (только мобилка) */}
+          {/* Бургер-меню (только мобилка) */}
           <button
             className="md:hidden text-white hover:text-yellow-500 transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}

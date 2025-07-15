@@ -193,8 +193,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Адрес</h4>
                     <p className="text-gray-700">
-                      г. Москва, ул. Логистическая, 15<br />
-                      БЦ "Карго Плаза", офис 301
+                      г. Пятигорск, ул. Октябрьская, 46<br />
+                      
                     </p>
                   </div>
                 </div>
