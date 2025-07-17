@@ -60,7 +60,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-red-600 mt-0.5" />
                 <div>
-                  <p className="text-gray-400">shaocargo@yande.com</p>
+                  <p className="text-gray-400">shaocargo@yandex.com</p>
                 </div>
               </div>
               
