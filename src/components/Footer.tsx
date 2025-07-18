@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <img src="/logo.png" alt="Shao Cargo" className="h-10 w-auto" />
+              <img src="/logo.webp" alt="Shao Cargo" className="h-10 w-auto" loading="lazy" />
               <span className="text-xl font-bold">Shao Cargo</span>
             </div>
             <p className="text-gray-400 mb-4 leading-relaxed">

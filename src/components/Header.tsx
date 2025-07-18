@@ -33,9 +33,10 @@ const Header = () => {
           <div className="flex items-center gap-10">
             {/* Логотип */}
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="Shao Cargo"
               className="h-16 w-auto sm:h-20 md:h-24"
+              loading="lazy"
               
             />
 
