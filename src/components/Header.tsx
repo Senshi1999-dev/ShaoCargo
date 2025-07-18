@@ -36,6 +36,7 @@ const Header = () => {
               src="/logo.png"
               alt="Shao Cargo"
               className="h-16 w-auto sm:h-20 md:h-24"
+              
             />
 
             {/* Название компании (мобилка) */}
